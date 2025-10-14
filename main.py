@@ -3,21 +3,26 @@ from models import User
 import json
 from services import UserManager
 import uvicorn
+from database import create_table
+
+
 
 app = FastAPI(title='Еще одна практика FastAPI')
 
+create_table()
 user_manager = UserManager()
 
 
 @app.get('/get',
          tags=['Получить пользователя'],
-         summary='Получить конкретного пользователя')
+         summary='Получить всех пользователей')
 def get_users():
     return user_manager.get_users()
 
 
 @app.post('/post',
-          tags=['Добавить пользователя'])
+          response_model=list,
+          tags=['Добавить нового пользователя'])
 def post_users(new_user: User):
     try:
         user_manager.add_user(new_user.name)
