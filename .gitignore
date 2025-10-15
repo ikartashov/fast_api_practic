@@ -8,7 +8,8 @@ wheels/
 .idea/
 .python-version
 db_demo2.py
-*.db
+users.db
+users_practice.db
 
 # Virtual environments
 .venv
