@@ -7,6 +7,9 @@ wheels/
 *.egg-info
 .idea/
 .python-version
+db_demo2.py
+users.db
+users_practice.db
 
 # Virtual environments
 .venv
